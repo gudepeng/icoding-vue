@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 552305 */
+  src: url('//at.alicdn.com/t/font_552305_50s6oy7ej6ecdi.eot');
+  src: url('//at.alicdn.com/t/font_552305_50s6oy7ej6ecdi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_552305_50s6oy7ej6ecdi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_552305_50s6oy7ej6ecdi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_552305_50s6oy7ej6ecdi.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:1em;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clock:before { content: "\e666"; }
+.icon-eye:before { content: "\e61f"; }
+.icon-comment:before { content: "\e607"; }
+.icon-like:before { content: "\e616"; }
+.icon-like-on:before { content: "\e62c"; }
+.icon-list:before { content: "\e679"; }
+.icon-close:before {content: "\e603"; }
+.icon-top:before {content: "\e64a"; }
+
+
+/*
+.social-share .icon-wechat:before {content: "\e7e5"; }
+.social-share .icon-qq:before {content: "\e600"; }
+.social-share .icon-weibo:before {content: "\e60e"; }
+*/
