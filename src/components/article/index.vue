@@ -1,10 +1,10 @@
 <template>
   <div class="article" :class="{ mobile: mobileLayout }">
-    <share :config="config"></share>
+    <div id="social-share-fx"></div>
     <div class="detail">
       <h2 class="title">{{ article.articleTitle || '...' }}</h2>
       <a class="sendtitle" @click="$router.push({path:'/publish',query:{id:article.articleId}})"
-            v-show="userInfo!=null&&userInfo.userId==article.userId">编辑</a>
+         v-show="userInfo!=null&&userInfo.userId==article.userId">编辑</a>
       <transition name="module" mode="out-in">
         <empty-box class="article-empty-box" v-if="!fetching && !article.articleTitle">
           <slot>No Result Article.</slot>
@@ -122,6 +122,8 @@
 
 <script>
   import marked from '@/plugins/marked'
+  import 'social-share.js/src/css/share.scss'
+  import 'social-share.js/dist/js/social-share.min.js'
 
   export default {
     name: 'article-detail',
@@ -131,29 +133,26 @@
         fullContentEd: false,
         readMoreLoading: false,
         yourcommentContent: '',
-        config:{
-          url: '', // 网址，默认使用 window.location.href
-          title: this.article.articleTitle, // 标题，默认读取 document.title 或者 <meta name="title" content="share.js" />
-          description: '', // 描述, 默认读取head标签：<meta name="description" content="PHP弱类型的实现原理分析" />
-          image: '', // 图片, 默认取网页中第一个img标签
-          sites               : [, 'qq', 'weibo','wechat'], // 启用的站点
-          disabled            : ['google', 'facebook', 'twitter'], // 禁用的站点
-          wechatQrcodeTitle   : '微信扫一扫：分享', // 微信二维码提示文字
-          wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'
-        }
       }
     },
     watch: {
-      '$route' (to, from) {
-        this.$store.dispatch('loadArticleDetail', {id: this.$route.params.id})
+      async '$route' (to, from) {
+        let reponse =  await this.$store.dispatch('loadArticleDetail', {id: this.$route.params.id})
         this.$store.dispatch('loadcomment', {id: this.$route.params.id, topicType: "article"})
       }
     },
-    mounted() {
-      this.$store.dispatch('loadArticleDetail', {id: this.$route.params.id})
+    async mounted() {
+      let reponse = await this.$store.dispatch('loadArticleDetail', {id: this.$route.params.id})
       this.$store.dispatch('loadcomment', {id: this.$route.params.id, topicType: "article"})
+      let config={
+        title: reponse.result.articleTitle,
+        description: reponse.result.articleTitle,
+        sites: [ 'qzone','qq', 'weibo','wechat'],
+        wechatQrcodeTitle: '微信扫一扫：分享',
+        wechatQrcodeHelper: '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'
+      }
+      window.socialShare(document.getElementById('social-share-fx'), config)
     },
-    components: {},
     computed: {
       article() {
         return this.$store.state.article.detail.data
@@ -245,12 +244,11 @@
   @import '../../assets/sass/mixins';
   @import '../../assets/sass/variables';
 
-
   .social-share {
     position: fixed;
     left: 10em;
     width: 32px;
-    top: 10em;
+    top: 15em;
   }
 
   .article {

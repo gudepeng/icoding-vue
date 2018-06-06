@@ -45,12 +45,12 @@
               <div class="oauth">
                 <div class="oauth-bg">
                   <a href="/api/auth/qq">
-                    <img title="QQ" src="https://gold-cdn.xitu.io/v3/static/img/wechat.e0ff124.svg" class="oauth-btn">
+                    <img title="QQ" src="static/images/qq.svg" class="oauth-btn">
                   </a>
                 </div>
                 <div class="oauth-bg">
                   <a href="/api/auth/github">
-                    <img title="GitHub" src="https://gold-cdn.xitu.io/v3/static/img/github.547dd8a.svg" class="oauth-btn">
+                    <img title="GitHub" src="static/images/github.svg" class="oauth-btn">
                   </a>
                 </div>
               </div>
@@ -260,9 +260,8 @@
               background-color: #f4f8fb;
               display: flex;
               justify-content: center;
-              & > .oauth-btn {
-                margin: .5em;
-                height: 2em;
+               .oauth-btn {
+                margin: .2em;
                 vertical-align: bottom;
                 cursor: pointer;
                 border-style: none;
