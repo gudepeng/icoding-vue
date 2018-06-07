@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="163px" height="78px" viewBox="0 0 163 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#93C0FF" offset="0%"></stop>
+            <stop stop-color="#4990E2" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#93C0FF" offset="0%"></stop>
+            <stop stop-color="#4990E2" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.702162591">
+        <g id="180---iPhone-6-Plus" transform="translate(-6.000000, -53.000000)">
+            <g id="Group" transform="translate(2.000000, 27.000000)">
+                <rect id="Rectangle" fill="url(#linearGradient-1)" transform="translate(28.284271, 78.426407) rotate(-45.000000) translate(-28.284271, -78.426407) " x="18.2842712" y="48.4264069" width="20" height="60" rx="10"></rect>
+                <rect id="Rectangle-Copy" fill="url(#linearGradient-1)" transform="translate(28.284271, 50.426407) rotate(-135.000000) translate(-28.284271, -50.426407) " x="18.2842712" y="20.4264069" width="20" height="60" rx="10"></rect>
+                <rect id="Rectangle-Copy-3" fill="url(#linearGradient-2)" transform="translate(142.284271, 79.500000) scale(-1, 1) rotate(-45.000000) translate(-142.284271, -79.500000) " x="132.284271" y="49.5" width="20" height="60" rx="10"></rect>
+                <rect id="Rectangle-Copy-2" fill="url(#linearGradient-1)" transform="translate(142.284271, 50.500000) scale(-1, 1) rotate(-135.000000) translate(-142.284271, -50.500000) " x="132.284271" y="20.5" width="20" height="60" rx="10"></rect>
+                <circle id="Oval" fill="#93C0FF" cx="14" cy="64.1421356" r="10"></circle>
+                <circle id="Oval-Copy" fill="#93C0FF" cx="156" cy="65.2157288" r="10"></circle>
+                <text id="5" font-family="FZCHYFW--GB1-0, FZCuHuoYi-M25T" font-size="110" font-weight="normal" fill="#93C0FF">
+                    <tspan x="56" y="102">5</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

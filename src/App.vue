@@ -2,15 +2,9 @@
   <div id="app" v-cloak>
     <div id="app-main">
       <header-view v-if="!mobileLayout"></header-view>
+      <mobile-header v-if="mobileLayout"></mobile-header>
       <main id="main" :class="{ 'mobile': mobileLayout, [$route.name]: true }">
-        <div id="main-content"
-             class="main-content"
-             :class="{
-               'mobile-layout': mobileLayout,
-               [$route.name]: true
-              }">
-            <router-view/>
-        </div>
+        <router-view/>
       </main>
       <tool-view v-if="!mobileLayout && !['app', 'music', 'service'].includes($route.name)"></tool-view>
       <footer-view v-if="!mobileLayout"></footer-view>
@@ -19,6 +13,7 @@
 </template>
 
 <script>
+  import MobileHeader from '@/components/mobile/header.vue'
   import HeaderView from '@/components/layout/header.vue'
   import ToolView from '@/components/layout/tool.vue'
   import FooterView from '@/components/layout/footer.vue'
@@ -52,7 +47,8 @@
     components: {
       HeaderView,
       ToolView,
-      FooterView
+      FooterView,
+      MobileHeader
     }
   }
 </script>

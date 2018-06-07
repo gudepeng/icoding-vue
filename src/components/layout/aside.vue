@@ -18,37 +18,6 @@
         </li>
       </ul>
     </div>
-    <!--<div class="aside-ad" v-if="false">
-      <a href="https://s.click.taobao.com/ZaXp1Rx"
-         target="_blank"
-         rel="external nofollow noopener"
-         class="ad-box">
-        <img src="https://p1.bpimg.com/567571/e85fb6270effc4c7.jpg">
-      </a>
-    </div>
-    <div class="aside-fixed-box" v-scroll-top>
-      <div class="aside-tag">
-        <empty-box v-if="!tag.fetching && !tag.data.data.length">
-          <slot>No Result Tags.</slot>
-        </empty-box>
-        <ul class="aside-tag-list" v-else-if="!tag.fetching && tag.data.data.length">
-          <router-link tag="li"
-                       class="item"
-                       :key="index"
-                       :to="`/tag/${item.slug}`"
-                       v-for="(item, index) in tag.data.data">
-            <a class="title" :title="item.description">
-              <i class="iconfont"
-                 :class="[item.extends.find(t => Object.is(t.name, 'icon')).value]"
-                 v-if="item.extends.find(t => Object.is(t.name, 'icon'))"></i>
-              <span>&nbsp;</span>
-              <span>{{ item.name }}</span>
-              <span>({{ item.count || 0 }})</span>
-            </a>
-          </router-link>
-        </ul>
-      </div>
-    </div>-->
   </aside>
 </template>
 

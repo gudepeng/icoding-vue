@@ -28,21 +28,6 @@ export const state = () => {
     // ua
     userAgent: '',
 
-    // 服务端博主信息
-    adminInfo: {
-      fetching: false,
-      data: {}
-    },
-
-    // 服务端设置的全局配置
-    globalOption: {
-      fetching: false,
-      data: {
-        meta: {
-          likes: 0
-        }
-      }
-    },
     articleType: [
       {
         value: '1', label: '前端'
@@ -106,36 +91,6 @@ export const mutations = {
   // 设置错误页面模板
   SET_ERROR_COLUMU(state, action) {
     state.errorColumn = action
-  },
-
-  // 获取服务端配置的管理员信息
-  REQUEST_ADMIN_INFO(state) {
-    state.adminInfo.fetching = true
-  },
-  REQUEST_ADMIN_INFO_SUCCESS(state, action) {
-    state.adminInfo.fetching = false
-    state.adminInfo.data = action.result
-  },
-  REQUEST_ADMIN_INFO_FAILURE(state) {
-    state.adminInfo.fetching = false
-    state.adminInfo.data = {}
-  },
-
-  // 获取服务端配置
-  REQUEST_GLOBAL_OPTIONS(state) {
-    state.globalOption.fetching = true
-  },
-  REQUEST_GLOBAL_OPTIONS_SUCCESS(state, action) {
-    state.globalOption.fetching = false
-    state.globalOption.data = action.result
-  },
-  REQUEST_GLOBAL_OPTIONS_FAILURE(state) {
-    state.globalOption.fetching = false
-  },
-
-  // 喜欢本站
-  LIKE_SITE(state, action) {
-    state.globalOption.data.meta.likes++
   },
 
   // 切换弹幕状态

@@ -1,8 +1,8 @@
 <template>
   <div class="indexmain">
-    <div>
-      <carrousel :article="article"></carrousel>
-      <announcement :announcement="announcement" @clicktype="clickTypeArticle"></announcement>
+    <div :class="{ 'mobile': mobileLayout}">
+      <carrousel :article="article" v-if="!mobileLayout"></carrousel>
+      <announcement :announcement="announcement" @clicktype="clickTypeArticle" v-if="!mobileLayout"></announcement>
       <article-list :article="article" @loadmore="loadmoreArticle"></article-list>
     </div>
     <transition name="aside">
@@ -83,6 +83,9 @@
 
   .indexmain {
     width: 100%;
+    & > .mobile{
+      width:100%
+    }
     & > div {
       width: 55em;
       float: left;

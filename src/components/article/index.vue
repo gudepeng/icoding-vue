@@ -1,6 +1,6 @@
 <template>
   <div class="article" :class="{ mobile: mobileLayout }">
-    <div id="social-share-fx"></div>
+    <div id="social-share-fx" v-show="!mobileLayout"></div>
     <div class="detail">
       <h2 class="title">{{ article.articleTitle || '...' }}</h2>
       <a class="sendtitle" @click="$router.push({path:'/publish',query:{id:article.articleId}})"
@@ -51,7 +51,7 @@
         </p>
       </div>
     </transition>
-    <div class="comments">
+    <div class="comments" v-show="!mobileLayout">
       <div class="commentself">
         <div class="title">
           <span>评论</span>
@@ -144,7 +144,9 @@
     async mounted() {
       let reponse = await this.$store.dispatch('loadArticleDetail', {id: this.$route.params.id})
       this.$store.dispatch('loadcomment', {id: this.$route.params.id, topicType: "article"})
+      document.title = reponse.result.articleTitle
       let config={
+        url: window.location.href,
         title: reponse.result.articleTitle,
         description: reponse.result.articleTitle,
         sites: [ 'qzone','qq', 'weibo','wechat'],
@@ -154,6 +156,9 @@
       window.socialShare(document.getElementById('social-share-fx'), config)
     },
     computed: {
+      mobileLayout() {
+        return this.$store.state.option.mobileLayout
+      },
       article() {
         return this.$store.state.article.detail.data
       },
@@ -311,11 +316,8 @@
         cursor: pointer;
       }
       > .content {
-        iframe {
-          width: 100%;
-          margin-bottom: 1em;
-          background-color: black;
-        }
+        word-wrap:break-word;
+        word-break:break-all;
         a {
           font-weight: bold;
           margin: 0 .1em;
