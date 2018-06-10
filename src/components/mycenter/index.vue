@@ -15,7 +15,6 @@
         </div>
         <div class="time">
           {{item.articleTime | toYMD}}
-
         </div>
       </div>
       <div v-for="(item,index) in selflikearticles.data.data" :key="index" v-show="clickT=='like'">
@@ -53,6 +52,7 @@
       }
     },
     async mounted () {
+      document.title = '个人中心'
       await this.$store.dispatch('loadSelfOrLikeArticles', {currentPage: 1, type: "SELF"})
       await this.$store.dispatch('loadSelfOrLikeArticles', {currentPage: 1, type: "SELFLIKE"})
     },

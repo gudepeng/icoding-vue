@@ -34,6 +34,7 @@
       Carrousel, announcement, ArticleList, AsideView
     },
     mounted: function () {
+      document.title = '5icoding'
       this.$store.dispatch('loadArticles')
       this.$store.dispatch('loadHotArticles')
     },

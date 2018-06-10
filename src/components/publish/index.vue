@@ -89,6 +89,7 @@
       }
     },
     async mounted () {
+      document.title = '编写文章'
       // 有id就获取文章内容
       if (this.$route.query.id) {
         if (process.browser) {
