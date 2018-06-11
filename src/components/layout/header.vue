@@ -11,7 +11,7 @@
             <span class="navbar-slogan" title="暂未开放">开源项目</span>
             <span class="navbar-slogan" title="暂未开放">分享资源</span>
             <span class="navbar-slogan" title="暂未开放">视频教程</span>
-            <span class="navbar-slogan">联系我们</span>
+            <span  @click="$router.push('/contactus')" class="navbar-slogan">联系我们</span>
           </div>
         </div>
         <div class="navbar-longin">
