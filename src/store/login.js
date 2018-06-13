@@ -5,7 +5,11 @@ import Service from '@/plugins/axios'
 export const state = () => {
   return {
     showlogintype: null,
-    authUser: null
+    authUser: null,
+    connect:{
+      qq:false,
+      github:false
+    },
   }
 }
 
@@ -15,10 +19,30 @@ export const mutations = {
   },
   SET_USER(state, user) {
     state.authUser = user
-  }
+  },
+  SET_CONNECT(state, data) {
+    state.connect = data
+  },
 }
 
 export const actions = {
+  BINDCONNECT({commit}, params) {
+    return Service.post('/connect/'+params)
+      .then(response => {
+        debugger
+        const success = !!response.status && response.data && Object.is(response.data.status, 0)
+        if (success) commit('SET_USER', response.data)
+      }, err => {
+      })
+  },
+  CONNECT({commit}) {
+    return Service.get('/connect')
+      .then(response => {
+        const success = !!response.status && response.data
+        if (success) commit('SET_CONNECT', response.data)
+      }, err => {
+      })
+  },
   //修改登录状态
   SHOWLONGINTYPE({commit}, params) {
     commit('SHOW_LOGIN', params)

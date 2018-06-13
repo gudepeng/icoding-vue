@@ -30,5 +30,15 @@ export default new Router({
       name: 'Contactus',
       component: resolve => require(["@/components/contactus/index"], resolve),
     },
+    {
+      path: '/setting',
+      name: 'Setting',
+      component: resolve => require(["@/components/setting/index"], resolve),
+    },
+    {
+      path: '/opensource',
+      name: 'Opensource',
+      component: resolve => require(["@/components/opensource/index"], resolve),
+    },
   ]
 })

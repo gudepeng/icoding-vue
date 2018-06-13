@@ -8,6 +8,7 @@ axios.defaults.headers.delete['Content-Type'] = 'application/json';
 
 const service = axios.create({
   baseURL: 'http://www.5icoding.top/api',
+  //baseURL: 'http://www.5icoding.top/api',
   //baseURL: 'http://127.0.0.1:8081/api',
   withCredentials: true,
 })

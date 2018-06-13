@@ -8,7 +8,7 @@
         <div class="navbar-menu">
           <div>
             <span @click="$router.push('/')" class="navbar-slogan">首页</span>
-            <span class="navbar-slogan" title="暂未开放">开源项目</span>
+            <span @click="$router.push('/opensource')" class="navbar-slogan">开源项目</span>
             <span class="navbar-slogan" title="暂未开放">分享资源</span>
             <span class="navbar-slogan" title="暂未开放">视频教程</span>
             <span  @click="$router.push('/contactus')" class="navbar-slogan">联系我们</span>
@@ -36,6 +36,7 @@
                 <el-dropdown-item  command="publish">写文章</el-dropdown-item>
                 <el-dropdown-item divided command="mycenter/me">我的主页</el-dropdown-item>
                 <el-dropdown-item  command="mycenter/like">我喜欢的</el-dropdown-item>
+                <el-dropdown-item  command="setting">设置</el-dropdown-item>
                 <el-dropdown-item divided command="logout">登出</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
