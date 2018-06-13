@@ -1,6 +1,6 @@
 <template>
   <el-carousel height="200px" :interval="5000">
-    <el-carousel-item v-for="item in banners" :key="item">
+    <el-carousel-item v-for="item in banners" :key="item.path">
       <img :src="item.path"/>
     </el-carousel-item>
   </el-carousel>

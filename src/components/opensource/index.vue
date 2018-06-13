@@ -2,30 +2,29 @@
   <div class="projects" :class="{ mobile: mobileLayout }">
     <ul class="project-list">
       <li class="item"
-          :key="index"
           :class="{ last: buildLastClass(index) }"
           v-for="(project, index) in projects">
         <a target="_blank"
            class="item-content"
            rel="external nofollow noopenter"
-           :href="project.osUrl"
-           :title="project.osSummary">
-          <i class="iconfont" :class="['icon-vue']"></i>
-          <h3 class="title">{{ project.osTitle }}</h3>
-          <p class="description" style="-webkit-box-orient: vertical;">{{ project.osSummary }}</p>
+           :href="project.html_url"
+           :title="project.description">
+          <i class="iconfont" :class="['icon-'+project.language]"></i>
+          <h3 class="title">{{ project.name }}</h3>
+          <p class="description" style="-webkit-box-orient: vertical;">{{project.description }}</p>
           <hr>
           <p class="meta">
             <span class="item star">
               <i class="iconfont icon-star"></i>
-              <span>1</span>
+              <span>{{project.stargazers_count}}</span>
             </span>
             <span class="item fork">
               <i class="iconfont icon-git-fork"></i>
-              <span>2</span>
+              <span>{{project.forks_count}}</span>
             </span>
             <span class="item issues">
               <i class="iconfont icon-git-issue"></i>
-              <span>3</span>
+              <span>{{project.open_issues_count}}</span>
             </span>
           </p>
         </a>
@@ -42,7 +41,7 @@
     },
     computed: {
       projects() {
-        return this.$store.state.opensource.list.data.data
+        return this.$store.state.opensource.opensources.data
       },
       mobileLayout() {
         return this.$store.state.option.mobileLayout
@@ -51,57 +50,14 @@
     methods: {
       buildLastClass(index) {
         const projects = this.projects
-
         // 取余
         if (projects.length % 4) {
           return index >= (projects.length - projects.length % 4)
-
           // 取整
         } else {
           return index >= projects.length - 4
         }
       },
-      buildIcon(project) {
-        switch(true) {
-          case project.name.toLowerCase().includes('vue'):
-          case project.description.toLowerCase().includes('vue'):
-            return 'icon-vue'
-            break;
-          case project.name.toLowerCase().includes('node'):
-            return 'icon-nodejs'
-            break;
-          case project.name.toLowerCase().includes('angular'):
-          case project.name.toLowerCase().includes('ng2'):
-            return 'icon-angularjs'
-            break;
-          case project.name.toLowerCase().includes('chrome'):
-            return 'icon-chrome'
-            break;
-          case project.name.toLowerCase().includes('jquery'):
-            return 'icon-jquery'
-            break;
-          case project.name.toLowerCase().includes('wordpress'):
-            return 'icon-wordpress'
-            break;
-          case project.name.toLowerCase().includes('linux'):
-          case project.description.toLowerCase().includes('linux'):
-            return 'icon-linux'
-            break;
-          case project.name.toLowerCase().includes('react'):
-          case project.description.toLowerCase().includes('react'):
-            return 'icon-react'
-            break;
-          case project.description.toLowerCase().includes('netease'):
-            return 'icon-netease-music'
-            break;
-          case project.description.toLowerCase().includes('music'):
-            return 'icon-music'
-            break;
-          default:
-            return 'icon-code'
-            break;
-        }
-      }
     }
   }
 </script>

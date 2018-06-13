@@ -36,7 +36,7 @@ export const state = () => {
         value: '2', label: '后端'
       },
       {
-        value: '3', label: '手机端'
+        value: '3', label: '数据库'
       },
       {
         value: '4', label: '人工智能'
