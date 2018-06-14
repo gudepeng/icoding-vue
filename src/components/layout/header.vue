@@ -33,10 +33,10 @@
                 <img style="width: 36px;height: 36px" @click="$router.push('/mycenter/me')" src="https://gold-cdn.xitu.io/v3/static/img/default-avatar.e30559a.svg"/>
               </template>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item  command="publish">写文章</el-dropdown-item>
-                <el-dropdown-item divided command="mycenter/me">我的主页</el-dropdown-item>
-                <el-dropdown-item  command="mycenter/like">我喜欢的</el-dropdown-item>
-                <el-dropdown-item  command="setting">设置</el-dropdown-item>
+                <el-dropdown-item  command="/publish">写文章</el-dropdown-item>
+                <el-dropdown-item divided command="/mycenter/me">我的主页</el-dropdown-item>
+                <el-dropdown-item  command="/mycenter/like">我喜欢的</el-dropdown-item>
+                <el-dropdown-item  command="/setting">设置</el-dropdown-item>
                 <el-dropdown-item divided command="logout">登出</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
@@ -83,7 +83,7 @@
           this.$store.dispatch('logout')
           this.$router.push('/')
         }else{
-          this.$router.push('/'+command)
+          this.$router.push(command)
         }
       }
     },

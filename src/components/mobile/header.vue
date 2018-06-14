@@ -5,6 +5,17 @@
         <div class="navbar-header">
           <img src="static/images/logo.svg" class="navbar-logo">
         </div>
+        <el-dropdown trigger="click" @command="handleCommand">
+          <span class="el-dropdown-link">
+            下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="/">首页</el-dropdown-item>
+            <el-dropdown-item command="/opensource">开源项目</el-dropdown-item>
+            <el-dropdown-item command="/contactus">联系我们</el-dropdown-item>
+            <el-dropdown-item disabled>登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
     </nav>
   </header>
@@ -15,18 +26,17 @@
   export default {
     name: 'mobileheader',
     data() {
-      return {
-
-      }
+      return {}
     },
     async mounted() {
     },
-    computed: {
-    },
+    computed: {},
     methods: {
+      handleCommand(command){
+        this.$router.push(command)
+      }
     },
-    components: {
-    }
+    components: {}
   }
 </script>
 
@@ -34,8 +44,20 @@
   @import '../../assets/sass/mixins';
   @import '../../assets/sass/variables';
 
-  .header {
+  .el-dropdown {
+    position: absolute;
+    right: 1em;
+    top: 1.5em;
+    > .el-dropdown-link {
+      cursor: pointer;
+      color: $primary;
+    }
+    > .el-icon-arrow-down {
+      font-size: 12px;
+    }
+  }
 
+  .header {
     .navbar {
       position: fixed;
       top: 0;

@@ -51,7 +51,7 @@
         </p>
       </div>
     </transition>
-    <div class="comments" v-show="!mobileLayout">
+    <div class="comments">
       <div class="commentself">
         <div class="title">
           <span>评论</span>
@@ -68,9 +68,9 @@
             <el-button type="primary" @click="comitcomment" round>评论</el-button>
           </div>
         </div>
-        <div class="yourcomment" v-show="userInfo==null">
-          <el-button type="primary" @click="login" round style="margin-left: 27em;margin-right: .5em">登录</el-button>
-          说说你的看法
+        <div class="yourcommentout" v-show="userInfo==null">
+          <el-button type="primary" @click="login" round>登录</el-button>
+          <div>说说你的看法</div>
         </div>
       </div>
       <ul>
@@ -561,6 +561,7 @@
           border: 1px solid #f1f1f1;
           border-radius: 4px;
           width: 90%;
+          height: 10em;
           margin-left: auto;
           margin-right: auto;
           > div {
@@ -583,6 +584,24 @@
                 outline: none;
               }
             }
+            & button {
+              float: right;
+            }
+          }
+        }
+        > .yourcommentout{
+          height: 10em;
+          padding: 1.3em 1.3em 1.3em 0em;
+          background-color: #f8f9fa;
+          border: 1px solid #f1f1f1;
+          border-radius: 4px;
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+          display: flex;
+          justify-content: center;
+          align-items:center;
+          > div {
             & button {
               margin-left: 59em;
             }
@@ -633,8 +652,12 @@
                 }
               }
               > .reply {
+                margin-top: 9px;
+                border: 1px solid #eaeaea;
+                border-radius: 3px;
                 > div {
-                  width: 100%;
+                  border-bottom: 1px solid #e1e5e8;
+                  margin: 15px;
                   display: flex;
                   > .user {
                     float: left;
