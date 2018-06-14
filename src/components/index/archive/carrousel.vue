@@ -14,13 +14,13 @@
       return {
         banners: [
           {
-            path: 'static/images/banner3.png'
+            path: 'static/images/banner3.jpg'
           },
           {
-            path: 'static/images/banner1.png'
+            path: 'static/images/banner1.jpg'
           },
           {
-            path: 'static/images/banner2.png'
+            path: 'static/images/banner2.jpg'
           },
         ]
       }

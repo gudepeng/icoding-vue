@@ -38,6 +38,15 @@
         type: Object
       }
     },
+    mounted() {
+      let _this = this;
+      window.addEventListener('scroll',function(){
+        // 判断是否滚动到底部
+        if(document.body.scrollTop + window.innerHeight >= document.body.offsetHeight) {
+          _this.$emit('loadmore')
+        }
+      });
+    },
     computed: {
       canLoadMore() {
         return this.article.data.page.currentPage < this.article.data.page.totalPage
