@@ -2,6 +2,7 @@
   <div class="projects" :class="{ mobile: mobileLayout }">
     <ul class="project-list">
       <li class="item"
+          :key="index"
           :class="{ last: buildLastClass(index) }"
           v-for="(project, index) in projects">
         <a target="_blank"
@@ -50,14 +51,57 @@
     methods: {
       buildLastClass(index) {
         const projects = this.projects
+
         // 取余
         if (projects.length % 4) {
           return index >= (projects.length - projects.length % 4)
+
           // 取整
         } else {
           return index >= projects.length - 4
         }
       },
+      buildIcon(project) {
+        switch(true) {
+          case project.name.toLowerCase().includes('vue'):
+          case project.description.toLowerCase().includes('vue'):
+            return 'icon-vue'
+            break;
+          case project.name.toLowerCase().includes('node'):
+            return 'icon-nodejs'
+            break;
+          case project.name.toLowerCase().includes('angular'):
+          case project.name.toLowerCase().includes('ng2'):
+            return 'icon-angularjs'
+            break;
+          case project.name.toLowerCase().includes('chrome'):
+            return 'icon-chrome'
+            break;
+          case project.name.toLowerCase().includes('jquery'):
+            return 'icon-jquery'
+            break;
+          case project.name.toLowerCase().includes('wordpress'):
+            return 'icon-wordpress'
+            break;
+          case project.name.toLowerCase().includes('linux'):
+          case project.description.toLowerCase().includes('linux'):
+            return 'icon-linux'
+            break;
+          case project.name.toLowerCase().includes('react'):
+          case project.description.toLowerCase().includes('react'):
+            return 'icon-react'
+            break;
+          case project.description.toLowerCase().includes('netease'):
+            return 'icon-netease-music'
+            break;
+          case project.description.toLowerCase().includes('music'):
+            return 'icon-music'
+            break;
+          default:
+            return 'icon-code'
+            break;
+        }
+      }
     }
   }
 </script>
@@ -121,7 +165,7 @@
         > .item-content {
           display: block;
           width: 100%;
-          height: 100%;
+          height: auto;
           padding: 1rem;
           text-align: center;
           background-color: $module-bg;

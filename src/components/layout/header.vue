@@ -155,6 +155,7 @@
           padding-left: 3em;
 
           .navbar-slogan {
+            cursor: pointer;
             padding: 0.3em;
             color: $primary;
             &:hover {

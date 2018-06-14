@@ -23,7 +23,6 @@
         </div>
         <div class="time">
           {{item.articleTime | toYMD}}
-
         </div>
       </div>
     </div>
@@ -47,7 +46,6 @@
     },
     watch: {
       '$route' (to, from) {
-          debugger
         this.clickT = to.params.id
       }
     },
@@ -62,42 +60,12 @@
       },
       selflikearticles(){
         return this.$store.state.article.selflike
-      },
-      maxPage () {
-        return 1
-      },
-      page () {
-        return 1
-      },
-      hasMore () {
-        return true
       }
     },
     methods: {
       clicktitle(type) {
         this.clickT = type
       },
-      edit (item) {
-        this.$router.push({name: 'publish-id', params: {id: item.articleId}})
-      },
-      async del (item) {
-        await this.$store.dispatch('DEL_ARTICLE', item.date)
-        await this.$store.dispatch('LIST_BY_ALL', this.page)
-      },
-      prevPage () {
-        this.$router.push({
-          params: {
-            page: this.page - 1
-          }
-        })
-      },
-      nextPage () {
-        this.$router.push({
-          params: {
-            page: this.page + 1
-          }
-        })
-      }
     }
   }
 </script>
@@ -130,15 +98,15 @@
           cursor: pointer;
         }
         & :hover {
-          color: #0088F5;
+          color: $primary;
         }
       }
       & > .click {
 
         & > div {
-          color: #0088F5;
+          color: $primary;
         }
-        box-shadow: inset 0 -2px 0 #0088F5;
+        box-shadow: inset 0 -2px 0 $primary;
       }
     }
     .article_list {
