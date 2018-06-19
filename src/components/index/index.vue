@@ -67,7 +67,9 @@
     methods: {
       loadmoreArticle()
       {
-        this.$store.dispatch('loadArticles', this.nextPageParams)
+        if(this.article.data.page.currentPage!=this.article.data.page.totalPage){
+          this.$store.dispatch('loadArticles', this.nextPageParams)
+        }
       }
       ,
       clickTypeArticle(data)
