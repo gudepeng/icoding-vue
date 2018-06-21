@@ -466,7 +466,6 @@
             padding: 1em;
             float: left;
             width: 100%;
-            height: 100%;
             display: block;
             line-height: 1.6em;
             color: rgba(255, 255, 255, 0.87);

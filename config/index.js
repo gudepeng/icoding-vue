@@ -11,7 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {'/api': {
-      target: 'http://www.5icoding.top/',
+      target: 'https://www.5icoding.top/',
       changeOrigin: true,
       pathRewrite: {
         '^/api': '/api'
