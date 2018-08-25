@@ -26,6 +26,11 @@ export default new Router({
       component: resolve => require(["@/components/publish/index"], resolve),
     },
     {
+      path: '/share',
+      name: 'share',
+      component: resolve => require(["@/components/share/index"], resolve),
+    },
+    {
       path: '/contactus',
       name: 'Contactus',
       component: resolve => require(["@/components/contactus/index"], resolve),

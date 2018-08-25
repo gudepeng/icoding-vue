@@ -7,10 +7,10 @@
       <el-form-item>
         <el-input type="textarea" v-model="article.articleSummary" placeholder="文章摘要"></el-input>
       </el-form-item>
-      <el-form-item prop="articleContent">
-        <top-editor v-model="article.articleContent" :upload="upload" :options="options"></top-editor>
+      <el-form-item>
+        <el-input type="textarea" v-model="article.artucleShareUrl" placeholder="文章URL"></el-input>
       </el-form-item>
-      <el-form-item label="文章标签:" prop="articleTag">
+      <el-form-item label="文章标签：" prop="articleTag">
         <el-tag
           :key="tag"
           v-for="tag in article.articleTag"
@@ -28,7 +28,7 @@
           @keyup.enter.native="handleInputConfirm"
           @blur="handleInputConfirm">
         </el-input>
-        <el-button  v-else class="button-new-tag" size="small" @click="showInput">+ 添加标签</el-button>
+        <el-button v-else class="button-new-tag" size="small" @click="showInput">+ 添加标签</el-button>
       </el-form-item>
       <el-form-item label="文章分类：" prop="sortId">
         <el-select v-model="article.sortId" placeholder="请选择">
@@ -48,7 +48,6 @@
   </div>
 </template>
 <script>
-  import TopEditor from 'top-editor/src/lib/TopEditor.vue'
   export default {
     name: 'Publish',
     data () {
@@ -58,8 +57,8 @@
           articleTitle: [
             {required: true, message: '请输入文章标题', trigger: 'blur'},
           ],
-          articleContent: [
-            {required: true, message: '请输入文章内容', trigger: 'blur'},
+          artucleShareUrl: [
+            {required: true, message: '请输入文章URL', trigger: 'blur'},
           ],
           articleTag: [
             {required: true, message: '请输入文章标签', trigger: 'blur'},
@@ -69,12 +68,13 @@
           ],
         },
         article: {
-          articleContent: "",
+          artucleShareUrl: "",
           articleSummary: "",
           articleTag: [],
           articleTitle: "",
           articleTitleimage: "",
           sortId: null,
+          articleType:1
         },
         inputVisible: false,
         inputValue: '',
@@ -92,21 +92,6 @@
       document.title = '编写文章'
       // 有id就获取文章内容
       if (this.$route.query.id) {
-        if (process.browser) {
-          this.options = {
-            linkify: true,
-            highlight (str, lang) {
-              lang = lang || 'javascript'
-              if (require('highlight.js').getLanguage(lang)) {
-                try {
-                  return require('highlight.js').highlight(lang, str).value
-                } catch (__) {
-                }
-              }
-              return ''
-            }
-          }
-        }
         await this.$store.dispatch('loadArticleDetail', {'id': this.$route.query.id})
         let articleDetail = JSON.parse(JSON.stringify(this.$store.state.article.detail.data))
         articleDetail.articleTag = articleDetail.articleTag.split(',')
@@ -119,6 +104,7 @@
           articleTitle: "",
           articleTitleimage: "",
           sortId: null,
+          articleType:1
         }
       }
     },
@@ -131,6 +117,7 @@
           articleTitle: "",
           articleTitleimage: "",
           sortId: null,
+          articleType:1
         }
       }
       next()
@@ -181,7 +168,6 @@
       //文章标签结束
     },
     components: {
-      TopEditor
     }
   }
 </script>

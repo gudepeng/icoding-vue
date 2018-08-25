@@ -11,12 +11,14 @@
             <span @click="$router.push('/opensource')" class="navbar-slogan">开源项目</span>
             <span class="navbar-slogan" title="暂未开放">分享资源</span>
             <span class="navbar-slogan" title="暂未开放">视频教程</span>
-            <span  @click="$router.push('/contactus')" class="navbar-slogan">联系我们</span>
+            <span @click="$router.push('/contactus')" class="navbar-slogan">联系我们</span>
           </div>
         </div>
         <div class="navbar-longin">
           <div v-if="userInfo==null">
-            <span @click="writearticle" class="navbar-slogan">写文章</span>
+            <span @click="worsarticle(0)" class="navbar-slogan">写文章</span>
+            <span class="navbar-slogan">&</span>
+            <span @click="worsarticle(1)" class="navbar-slogan">分享文章</span>
             <span class="navbar-slogan">|</span>
             <span class="navbar-slogan" @click="login(0)">登录</span>
             <span class="navbar-slogan">&</span>
@@ -24,19 +26,24 @@
           </div>
           <div v-if="userInfo!=null">
             <span @click="$router.push('/publish')" class="navbar-slogan">写文章</span>
+            <span class="navbar-slogan">&</span>
+            <span @click="$router.push('/share')" class="navbar-slogan">分享文章</span>
             <span class="navbar-slogan">|</span>
             <el-dropdown @command="handleCommand">
               <template v-if="userInfo.userImageUrl">
-                <img style="width: 36px;height: 36px" @click="$router.push('/mycenter/me')" :src="userInfo.userImageUrl"/>
+                <img style="width: 36px;height: 36px" @click="$router.push('/mycenter/me')"
+                     :src="userInfo.userImageUrl"/>
               </template>
               <template v-else>
-                <img style="width: 36px;height: 36px" @click="$router.push('/mycenter/me')" src="https://gold-cdn.xitu.io/v3/static/img/default-avatar.e30559a.svg"/>
+                <img style="width: 36px;height: 36px" @click="$router.push('/mycenter/me')"
+                     src="https://gold-cdn.xitu.io/v3/static/img/default-avatar.e30559a.svg"/>
               </template>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item  command="/publish">写文章</el-dropdown-item>
+                <el-dropdown-item command="/publish">写文章</el-dropdown-item>
+                <el-dropdown-item command="/share">分享文章</el-dropdown-item>
                 <el-dropdown-item divided command="/mycenter/me">我的主页</el-dropdown-item>
-                <el-dropdown-item  command="/mycenter/like">我喜欢的</el-dropdown-item>
-                <el-dropdown-item  command="/setting">设置</el-dropdown-item>
+                <el-dropdown-item command="/mycenter/like">我喜欢的</el-dropdown-item>
+                <el-dropdown-item command="/setting">设置</el-dropdown-item>
                 <el-dropdown-item divided command="logout">登出</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
@@ -55,9 +62,7 @@
   export default {
     name: 'indexheader',
     data() {
-      return {
-
-      }
+      return {}
     },
     async mounted() {
       await this.$store.dispatch('loadAdminInfo')
@@ -71,18 +76,23 @@
       login(data) {
         this.$store.dispatch('SHOWLONGINTYPE', data)
       },
-      writearticle() {
+      worsarticle(type) {
         if (this.userInfo) {
-          this.$router.push('/publish')
+          if (type == 0) {
+            this.$router.push('/publish')
+          } else if(type == 1){
+            this.$router.push('/share')
+          }
+
         } else {
           this.$store.dispatch('SHOWLONGINTYPE', 0)
         }
       },
       handleCommand(command){
-        if(command=="logout"){
+        if (command == "logout") {
           this.$store.dispatch('logout')
           this.$router.push('/')
-        }else{
+        } else {
           this.$router.push(command)
         }
       }
