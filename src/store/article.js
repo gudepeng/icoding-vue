@@ -200,8 +200,7 @@ export const actions = {
   PUBLISH_ARTICLE({commit}, params) {
     // 如果数据已存在，则直接返回Promise成功，并返回数据
     // 不存在则请求新数据
-    return Service.put('/article', params).then(response => {
-      debugger
+    return Service.post('/article', params).then(response => {
       const success = !!response.status && response.data && Object.is(response.data.status, 0)
       if (success) commit('PUBLISH_ARTICLE_SUCCESS', response.data)
       if (!success) commit('PUBLISH_ARTICLE_FAILURE')

@@ -2,9 +2,16 @@
   <div class="article-list-item" @click="toDetail">
       <div @click="$router.push(`/article/${item.articleId}`)" class="item-content" :class="{ mobile: mobileLayout }">
         <div class="item-body">
-          <h4 class="item-title" :title="item.articleTitle">
+          <template v-if="item.articleType==1">
+            <h4 @click.stop="openurl(item.artucleShareUrl)" class="item-title" :title="item.articleTitle">
             {{ item.articleTitle }}
-          </h4>
+            </h4>
+          </template>
+          <template v-else="item.articleType==0">
+            <h4 class="item-title" :title="item.articleTitle">
+            {{ item.articleTitle }}
+            </h4>
+           </template>
           <p class="item-description" style="-webkit-box-orient: vertical;" v-html="item.articleSummary"></p>
           <div class="item-meta">
           <span class="date">
@@ -86,6 +93,9 @@
         if (this.mobileLayout) {
           this.$router.push(`/article/${this.item.id}`)
         }
+      },
+      openurl(url){
+          window.open(url)
       }
     }
   }
