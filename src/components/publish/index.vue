@@ -10,7 +10,7 @@
       <el-form-item prop="articleContent">
         <top-editor v-model="article.articleContent" :upload="upload" :options="options"></top-editor>
       </el-form-item>
-      <el-form-item label="文章标签:" prop="articleTag">
+      <el-form-item label="文章标签：" prop="articleTag">
         <el-tag
           :key="tag"
           v-for="tag in article.articleTag"
@@ -28,7 +28,7 @@
           @keyup.enter.native="handleInputConfirm"
           @blur="handleInputConfirm">
         </el-input>
-        <el-button  v-else class="button-new-tag" size="small" @click="showInput">+ 添加标签</el-button>
+        <el-button v-else class="button-new-tag" size="small" @click="showInput">+ 添加标签</el-button>
       </el-form-item>
       <el-form-item label="文章分类：" prop="sortId">
         <el-select v-model="article.sortId" placeholder="请选择">
