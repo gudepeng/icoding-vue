@@ -1,37 +1,102 @@
 @font-face {
   font-family: 'iconfont';  /* project id 552305 */
-  src: url('//at.alicdn.com/t/font_552305_ze5knmaj23.eot');
-  src: url('//at.alicdn.com/t/font_552305_ze5knmaj23.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_552305_ze5knmaj23.woff') format('woff'),
-  url('//at.alicdn.com/t/font_552305_ze5knmaj23.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_552305_ze5knmaj23.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_552305_9nxdf5x1ldc.eot');
+  src: url('//at.alicdn.com/t/font_552305_9nxdf5x1ldc.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_552305_9nxdf5x1ldc.woff') format('woff'),
+  url('//at.alicdn.com/t/font_552305_9nxdf5x1ldc.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_552305_9nxdf5x1ldc.svg#iconfont') format('svg');
 }
 
 .iconfont {
-  font-family:"iconfont" !important;
-  font-size:1em;
-  font-style:normal;
+  font-family: "iconfont" !important;
+  font-size: 1em;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-clock:before { content: "\e666"; }
-.icon-eye:before { content: "\e61f"; }
-.icon-comment:before { content: "\e607"; }
-.icon-like:before { content: "\e616"; }
-.icon-like-on:before { content: "\e62c"; }
-.icon-list:before { content: "\e679"; }
-.icon-close:before {content: "\e603"; }
-.icon-top:before {content: "\e64a"; }
-.icon-qq:before {content: "\e600"; }
-.icon-github:before {content: "\ea0a"; }
-.icon-star:before {content: "\e681"; }
-.icon-git-fork:before {content: "\e6c3"; }
-.icon-git-issue:before {content: "\e60c"; }
+.icon-clock:before {
+  content: "\e666";
+}
 
+.icon-eye:before {
+  content: "\e61f";
+}
 
-.icon-Vue:before {content: "\e640"; }
-.icon-Java:before {content: "\e746"; }
-.icon-JavaScript:before {content: "\e898"; }
-.icon-CSS:before {content: "\e653"; }
-.icon-null:before {content: "\eb9f"; }
+.icon-comment:before {
+  content: "\e607";
+}
+
+.icon-like:before {
+  content: "\e616";
+}
+
+.icon-like-on:before {
+  content: "\e62c";
+}
+
+.icon-list:before {
+  content: "\e679";
+}
+
+.icon-close:before {
+  content: "\e603";
+}
+
+.icon-top:before {
+  content: "\e64a";
+}
+
+.icon-qq:before {
+  content: "\e600";
+}
+
+.icon-github:before {
+  content: "\ea0a";
+}
+
+.icon-star:before {
+  content: "\e681";
+}
+
+.icon-git-fork:before {
+  content: "\e6c3";
+}
+
+.icon-git-issue:before {
+  content: "\e60c";
+}
+
+.icon-Vue:before {
+  content: "\e640";
+}
+
+.icon-Java:before {
+  content: "\e746";
+}
+
+.icon-JavaScript:before {
+  content: "\e898";
+}
+
+.icon-CSS:before {
+  content: "\e653";
+}
+
+.icon-null:before {
+  content: "\eb9f";
+}
+
+.icon-share:before {
+  content: "\e63f";
+  font-size: 1.5em;
+  margin-right: .3em;
+  color: $primary;
+}
+
+.icon-original:before {
+  content: "\e63e";
+  font-size: 1.5em;
+  margin-right: .3em;
+  color: $primary;
+}
