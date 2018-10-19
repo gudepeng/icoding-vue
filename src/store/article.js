@@ -143,7 +143,7 @@ export const mutations = {
   }
 }
 export const actions = {
-  // 获取文章列表
+  // 获取文章列表d
   loadArticles({commit}, params = {currentPage: 1, sortId: null}) {
     commit('REQUEST_LIST')
     return Service.get('/article', {params})
