@@ -5,7 +5,7 @@
 
 const EmptyComponent = require('./empty.vue')
 const empty = {
-  install: function(Vue) {
+  install: function (Vue) {
     Vue.component('empty-box', EmptyComponent.default || EmptyComponent)
   }
 }

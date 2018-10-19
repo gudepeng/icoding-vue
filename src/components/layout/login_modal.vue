@@ -260,7 +260,7 @@
               background-color: #f4f8fb;
               display: flex;
               justify-content: center;
-               .oauth-btn {
+              .oauth-btn {
                 margin: .2em;
                 vertical-align: bottom;
                 cursor: pointer;

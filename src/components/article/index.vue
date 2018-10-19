@@ -10,13 +10,20 @@
           <slot>No Result Article.</slot>
         </empty-box>
       </transition>
-      <transition name="module" mode="out-in">
-        <div class="content" v-html="articleContent" v-if="!fetching && article.articleContent"></div>
+      <transition name="module" mode="out-in">{{article.artucleShareUrl}}
+        <div class="content" v-html="articleContent" v-if="!fetching && article.articleContent&&article.articleType==0"></div>
+        <div class="content" v-html="article.articleSummary" v-if="article.articleType==1"></div>
       </transition>
       <transition name="module" mode="out-in">
         <div class="readmore" v-if="canReadMore">
           <button class="readmore-btn" :disabled="readMoreLoading" @click="readMore()">
             <span>{{ !readMoreLoading ? '阅读余下全文' : '渲染中...' }}</span>
+            <i class="iconfont icon-next-bottom"></i>
+          </button>
+        </div>
+        <div class="readmore" v-if="article.articleType==1">
+          <button class="readmore-btn" :disabled="readMoreLoading" @click="readShare(article.artucleShareUrl)">
+            <span>阅读原文</span>
             <i class="iconfont icon-next-bottom"></i>
           </button>
         </div>
@@ -240,6 +247,9 @@
       },
       showReply(commentid, index){
         this.$store.dispatch('showloadreply', {commentId: commentid, index: index})
+      },
+      readShare(url){
+          window.open(url)
       }
     }
   }

@@ -4,12 +4,12 @@
         <div class="item-body">
           <template v-if="item.articleType==1">
             <h4 @click.stop="openurl(item.artucleShareUrl)" class="item-title" :title="item.articleTitle">
-            {{ item.articleTitle }}
+              <i class="iconfont icon-share"></i>{{ item.articleTitle }}
             </h4>
           </template>
           <template v-else="item.articleType==0">
             <h4 class="item-title" :title="item.articleTitle">
-            {{ item.articleTitle }}
+              <i class="iconfont icon-original"></i>{{ item.articleTitle }}
             </h4>
            </template>
           <p class="item-description" style="-webkit-box-orient: vertical;" v-html="item.articleSummary"></p>
