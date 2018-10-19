@@ -158,7 +158,7 @@ export const actions = {
         commit('article/GET_LIST_FAILURE', err)
       })
   },
-  // 获取最热文章列表
+  // 获取最热文章列表1
   loadHotArticles({commit}) {
     commit('REQUEST_HOT_LIST')
     return Service.get('/article/hot')
