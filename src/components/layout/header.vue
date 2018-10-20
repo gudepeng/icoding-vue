@@ -36,7 +36,7 @@
               </template>
               <template v-else>
                 <img style="width: 36px;height: 36px" @click="$router.push('/mycenter/me')"
-                     src="https://gold-cdn.xitu.io/v3/static/img/default-avatar.e30559a.svg"/>
+                     src="http://p83fsgahx.bkt.clouddn.com/Fr8HOIUN6L0YAokS4HmN4g11X6zs"/>
               </template>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="/publish">写文章</el-dropdown-item>

@@ -74,7 +74,7 @@ export default {
         articleTitle: "",
         articleTitleimage: "",
         sortId: null,
-        articleType: "1"
+        articleType: "0"
       },
       inputVisible: false,
       inputValue: "",
@@ -123,7 +123,7 @@ export default {
         articleTitle: "",
         articleTitleimage: "",
         sortId: null,
-        articleType: "1"
+        articleType: "0"
       };
     }
   },
@@ -136,7 +136,7 @@ export default {
         articleTitle: "",
         articleTitleimage: "",
         sortId: null,
-        articleType: "1"
+        articleType: "0"
       };
     }
     next();
@@ -158,7 +158,7 @@ export default {
             response.data &&
             Object.is(response.data.status, 0);
          if(response.data.status ===0){
-           this.upload.headers.token =response.data.result; 
+           this.upload.headers.token =response.data.result;
          }
         })
         .catch(err => {

@@ -9,7 +9,7 @@ let at = [
     value: '3', label: '数据库'
   },
   {
-    value: '4', label: '人工智能'
+    value: '4', label: '手机端'
   },
   {
     value: '5', label: '技术简介'
