@@ -62,4 +62,7 @@
     color: #2c3e50;
     margin-top: 60px;
   }
+  #main {
+    min-height: calc(100% - 175px);
+  }
 </style>
