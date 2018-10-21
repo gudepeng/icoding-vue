@@ -30,19 +30,19 @@ export const state = () => {
 
     articleType: [
       {
-        value: '1', label: '前端'
+        value: 1, label: '前端'
       },
       {
-        value: '2', label: '后端'
+        value: 2, label: '后端'
       },
       {
-        value: '3', label: '数据库'
+        value: 3, label: '数据库'
       },
       {
-        value: '4', label: '手机端'
+        value: 4, label: '手机端'
       },
       {
-        value: '5', label: '技术简介'
+        value: 5, label: '技术简介'
       }
     ],
     articleUpType: [{
