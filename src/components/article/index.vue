@@ -4,7 +4,7 @@
     <div class="detail">
       <h2 class="title">{{ article.articleTitle || '...' }}</h2>
       <a class="sendtitle" @click="$router.push({path:'/publish',query:{id:article.articleId}})"
-         v-show="userInfo!=null&&userInfo.userId==article.userId">编辑</a>
+         v-show="userInfo!=null&&userInfo.userId==article.userId">编 辑</a>
       <transition name="module" mode="out-in">
         <empty-box class="article-empty-box" v-if="!fetching && !article.articleTitle">
           <slot>No Result Article.</slot>
